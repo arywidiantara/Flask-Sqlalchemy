@@ -1,0 +1,12 @@
+.env
+.vscode
+__pycache__
+__pycache__/*
+app/__pycache__/*
+app/exceptions/__pycache__/*
+app/helpers/__pycache__/*
+app/models/__pycache__/*
+app/modules/delivery/__pycache__/*
+app/services/flask-example/__pycache__/*
+app/config/__pycache__/*
+.DS_Store

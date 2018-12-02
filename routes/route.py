@@ -25,7 +25,7 @@ def page_not_found(error):
         :error class: 
         :return json: 
     '''
-    environment = os.getenv("APP_ENV")
+    environment = Environment.get_credential('APP_ENV')
     # check environment
     if environment != "local":
         errors = ExceptionHandler.message_error()
@@ -42,7 +42,7 @@ def method_not_allowed(error):
         :error class: 
         :return json: 
     '''
-    environment = os.getenv("APP_ENV")
+    environment = Environment.get_credential('APP_ENV')
     # check environment
     if environment != "local":
         APIResponse.SetStatus(APIResponse.ERR_INVALID_PARAMETER)
@@ -58,7 +58,7 @@ def internal_server_error(error):
         :error class: 
         :return json: 
     '''
-    environment = os.getenv("APP_ENV")
+    environment = Environment.get_credential('APP_ENV')
     # check environment
     if environment != "local":
         SlackRepository.send_data_slack(error)

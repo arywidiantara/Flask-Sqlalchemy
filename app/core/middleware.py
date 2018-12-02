@@ -2,6 +2,7 @@ from flask import g, request, redirect, url_for, make_response
 from app.exceptions.handler import ExceptionHandler
 from app.core.apiresponse import APIResponse
 from app.core.request import request_data
+from config.env import Environment
 from functools import wraps
 from app import cache
 import os
@@ -25,7 +26,7 @@ def app_key(f):
             app_key = request_data('app-key')
 
         # check key
-        if app_key != os.environ.get('APP_KEY'):
+        if app_key != Environment.get_credential('APP_KEY'):
             errors = ExceptionHandler.key_wrong()
             APIResponse.SetStatus(APIResponse.ERR_INVALID_KEY)
             APIResponse.SetData(errors, 'errors')

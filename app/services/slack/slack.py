@@ -1,3 +1,4 @@
+from config.env import Environment
 from flask import request
 import requests
 import json
@@ -20,12 +21,12 @@ class Slack():
 
         payload = {
             "username": "Flask",
-            "channel": "#"+os.environ.get('SLACK_CHANNEL'),
+            "channel": "#"+Environment.get_credential('SLACK_CHANNEL'),
             "attachments": [
                 {
                     "color": "#2eb886",
                     "author_name": "Environment",
-                    "title": os.environ.get('APP_ENV'),
+                    "title": Environment.get_credential('APP_ENV'),
                     "text": "New Error",
                     "fields": [
                         {
@@ -60,7 +61,7 @@ class Slack():
 
         # hit and return data
         return requests.post(
-            os.environ.get('SLACK_WEBHOOK'),
+            Environment.get_credential('SLACK_WEBHOOK'),
             data=json.dumps(payload))
 
 

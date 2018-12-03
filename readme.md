@@ -67,8 +67,8 @@ A Flask Driven Restful API, Flask is written by Ary Widiantara [arywidiantara33@
     http://localhost:2800/
     ```
 
-
+* #### POSTMAN
     ```
-    POSTMAN => https://www.getpostman.com/collections/e0e1468f936336b85687
+    https://www.getpostman.com/collections/e0e1468f936336b85687
     ```
 
